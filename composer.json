@@ -4,7 +4,7 @@
   "description": "Additional fixes for Yireo Webp2 under Hyva",
   "type": "magento2-module",
   "require": {
-    "yireo/magento2-webp2": "^0.12",
+    "yireo/magento2-webp2": "~0.12",
     "hyva-themes/magento2-graphql-view-model": "^1.0",
     "magento/framework": "^101.0.1|^101.1|^102.0|^103.0"
   },
