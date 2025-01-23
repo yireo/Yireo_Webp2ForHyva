@@ -8,9 +8,7 @@
     "hyva-themes/magento2-graphql-view-model": "^1.0",
     "magento/framework": "^101.0.1|^101.1|^102.0|^103.0"
   },
-  "license": [
-    "OSL-3.0"
-  ],
+  "license": "OSL-3.0",
   "autoload": {
     "files": [
       "registration.php"
