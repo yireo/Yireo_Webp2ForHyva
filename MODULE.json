@@ -1,0 +1,8 @@
+{
+    "module_name": "Yireo_Webp2ForHyva",
+    "composer_name": "yireo/magento2-webp2-for-hyva",
+    "sequence": [
+        "Yireo_Webp2",
+        "Hyva_GraphqlViewModel"
+    ]
+}
