@@ -3,7 +3,8 @@
     "composer_name": "yireo/magento2-webp2-for-hyva",
     "sequence": [
         "Yireo_Webp2",
-        "Hyva_GraphqlViewModel"
+        "Hyva_GraphqlViewModel",
+        "Magento_Store"
     ],
     "phpcs_severity": "6",
     "phpstan_level": "8"
