@@ -5,6 +5,7 @@
         <sequence>
             <module name="Yireo_Webp2"/>
             <module name="Hyva_GraphqlViewModel"/>
+            <module name="Magento_Store"/>
         </sequence>
     </module>
 </config>
