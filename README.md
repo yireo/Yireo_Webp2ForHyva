@@ -7,6 +7,10 @@
 ![Latest Version](https://img.shields.io/packagist/v/yireo/magento2-webp2-for-hyva)
 <!-- badges.specs.end -->
 
+> **Deprecated:** This module is no longer maintained. Current versions of
+> [Yireo_Webp2](https://github.com/yireo/Yireo_Webp2) and Hyvä no longer need it.
+> Please remove it and use `yireo/magento2-webp2` instead.
+
 ## Additional module for Yireo Webp2 and Hyva GraphQL
 
 **If you are using the latest version of

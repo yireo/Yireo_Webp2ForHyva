@@ -12,6 +12,7 @@
         "php": ">=8.2 <8.6"
     },
     "license": "OSL-3.0",
+    "abandoned": "yireo/magento2-webp2",
     "autoload": {
         "files": [
             "registration.php"
