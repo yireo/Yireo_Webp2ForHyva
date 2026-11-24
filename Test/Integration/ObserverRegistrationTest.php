@@ -2,8 +2,8 @@
 
 namespace Yireo\Webp2ForHyva\Test\Integration;
 
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Event\ConfigInterface;
+use Magento\TestFramework\Helper\Bootstrap;
 use PHPUnit\Framework\TestCase;
 use Yireo\Webp2ForHyva\Observer\AddUrlWebpToGraphqlQuery;
 
@@ -14,7 +14,9 @@ class ObserverRegistrationTest extends TestCase
 {
     public function testObserverIsRegisteredForSliderQueryEvent(): void
     {
-        $eventConfig = ObjectManager::getInstance()->get(ConfigInterface::class);
+        $eventConfig = Bootstrap::getObjectManager()->get(ConfigInterface::class);
+        $this->assertInstanceOf(ConfigInterface::class, $eventConfig);
+
         $observers = $eventConfig->getObservers('hyva_graphql_render_before_slider_products_query');
 
         $this->assertArrayHasKey('Yireo_Webp2ForHyva::addUrlWebpToGraphqlQuery', $observers);
