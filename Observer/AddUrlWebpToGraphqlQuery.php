@@ -3,30 +3,55 @@
 namespace Yireo\Webp2ForHyva\Observer;
 
 use Hyva\GraphqlViewModel\Model\GraphqlQueryEditor;
+use Magento\Framework\DataObject;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Throwable;
 
 class AddUrlWebpToGraphqlQuery implements ObserverInterface
 {
-    /**
-     * @var GraphqlQueryEditor
-     */
-    private $queryEditor;
+    private const LINK_TYPES = ['related', 'crosssell', 'upsell'];
 
-    public function __construct(GraphqlQueryEditor $queryEditor)
-    {
-        $this->queryEditor = $queryEditor;
+    public function __construct(
+        private readonly GraphqlQueryEditor $queryEditor
+    ) {
     }
 
-    // @todo: Create an integration test for this
-    public function execute(Observer $observer)
+    public function execute(Observer $observer): void
     {
-        $query = $observer->getData('gql_container')->getData('query');
-        $linkType  = $observer->getData('type');
-        $path  = ['products', 'items', ($linkType ? "{$linkType}_products" : 'products'), 'small_image'];
+        $container = $observer->getData('gql_container');
+        if (!$container instanceof DataObject) {
+            return;
+        }
 
-        $updatedQuery = $this->queryEditor->addFieldIn($query, $path, 'url_webp');
-        
-        $observer->getData('gql_container')->setData('query', $updatedQuery);
+        $query = $container->getData('query');
+        if (!is_string($query) || $query === '') {
+            return;
+        }
+
+        try {
+            $updatedQuery = $this->queryEditor->addFieldIn($query, $this->getPath($observer), 'url_webp');
+        } catch (Throwable) {
+            return;
+        }
+
+        $container->setData('query', $updatedQuery);
+    }
+
+    /**
+     * @return string[]
+     */
+    private function getPath(Observer $observer): array
+    {
+        $type = $observer->getData('type');
+        $isLinked = (bool)$observer->getData('is_linked_product')
+            && is_string($type)
+            && in_array($type, self::LINK_TYPES, true);
+
+        if ($isLinked) {
+            return ['products', 'items', $type . '_products', 'small_image'];
+        }
+
+        return ['products', 'items', 'small_image'];
     }
 }
