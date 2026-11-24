@@ -1,6 +1,8 @@
 {
   "ignore": [
     "Yireo_Webp2",
-    "yireo/magento2-webp2"
+    "yireo/magento2-webp2",
+    "Yireo_Webp2GraphQl",
+    "yireo/magento2-webp2-graph-ql"
   ]
 }
