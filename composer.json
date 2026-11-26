@@ -1,6 +1,6 @@
 {
     "name": "yireo/magento2-webp2-for-hyva",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Additional fixes for Yireo Webp2 under Hyva",
     "type": "magento2-module",
     "require": {
