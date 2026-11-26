@@ -4,15 +4,16 @@
     "description": "Additional fixes for Yireo Webp2 under Hyva",
     "type": "magento2-module",
     "require": {
-        "yireo/magento2-webp2": "~0.12",
-        "yireo/magento2-webp2-graph-ql": "^1.0",
         "hyva-themes/magento2-graphql-view-model": "^1.0",
         "magento/framework": "^101.0.1|^101.1|^102.0|^103.0",
         "magento/module-store": "^101.1",
-        "php": ">=8.2 <8.6"
+        "php": ">=8.2 <8.6",
+        "yireo/magento2-webp2": "~0.12",
+        "yireo/magento2-webp2-graph-ql": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0|^10.0|^11.0"
+        "phpunit/phpunit": "^9.0|^10.0|^11.0",
+        "yireo/magento2-integration-test-helper": "~0.0"
     },
     "license": "OSL-3.0",
     "abandoned": "yireo/magento2-webp2",
